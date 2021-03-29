@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+        <title>
+            IAtos
+        </title>
+        <link href="{{url_for('static',filename='styles.css')}}" rel= "stylesheet" type= "text/css"/>
+        <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" rel="stylesheet"/>
+    </head>
+    <body>
+        <h1 class="container-fluid">
+            IAtos
+        </h1>
+        <div class="col text-center" id="controles-grabacion">
+            <button class="btn btn-primary" id="comenzarGrabacion" onclick="comenzar()">
+                Grabar
+            </button>
+            <button class="btn btn-primary" id="detenerGrabacion" onclick="detener()" style="display: none;">
+                Detener
+            </button>
+        </div>
+        <div class="col text-center">
+            <form id="form" style="display: none;">
+                <div>
+                    <audio id="grabacion">
+                    </audio>
+                </div>
+                <input id="tos_base64" name="tos_base64" type="hidden"/>
+                <button class="btn btn-outline-danger" onclick="borrar(); return false;">
+                    Borrar
+                </button>
+                <a class="btn btn-outline-primary" id="descargar">
+                    Descargar
+                </a>
+                <input class="btn btn-outline-success" id="enviar" type="submit"/>
+            </form>
+        </div>
+        <div id="resultado" style="display: none;">
+            Respuesta:
+            <pre></pre>
+        </div>
+        <!-- Scripts -->
+        <script src="{{url_for('static',filename='JavaScript.js')}}">
+        </script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        </script>
+        <script crossorigin="anonymous" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" src="https://code.jquery.com/jquery-3.5.1.slim.min.js">
+        </script>
+        <script crossorigin="anonymous" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js">
+        </script>
+        <script crossorigin="anonymous" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js">
+        </script>
+    </body>
+</html>

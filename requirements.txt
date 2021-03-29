@@ -1,0 +1,12 @@
+# pip install -r requirements.txt
+# Declarar variable con la ubicación del archivo
+# set FLASK_APP=app.py
+# flask run
+
+Flask
+tensorflow==2.4.1
+statistics
+pydub
+tqdm
+librosa
+gunicorn # Librería para Heroku

@@ -1,0 +1,18 @@
+/*#form input, #form button, #form a, #controles-grabacion button {
+    display: inline-block;
+    background-color: #EAEAEA;
+    border: 1px #BBB solid;
+    text-decoration: none;
+    cursor: pointer;
+    color: #000;
+    font-family: sans-serif;
+    font-size: 15px;
+    padding: 3px 8px;
+    border-radius: 2px;
+}
+*/
+
+.container-fluid {
+    background-color: lightblue;
+    text-align: center;
+}
