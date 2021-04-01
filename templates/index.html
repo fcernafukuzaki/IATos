@@ -6,23 +6,166 @@
         <title>
             IAtos
         </title>
-        <link href="{{url_for('static',filename='styles.css')}}" rel= "stylesheet" type= "text/css"/>
+        <link href="styles.css" rel="stylesheet" type="text/css"/>
         <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" rel="stylesheet"/>
-
-        <!-- Scripts -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
-        </script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js">
-        </script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js">
-        </script>
-        <script src="{{url_for('static',filename='JavaScript.js')}}">
-        </script>
+        <link href="images/artificial-intelligence.png" rel="shortcut icon"/>
+        <link href="https://fonts.gstatic.com" rel="preconnect"/>
+        <link href="https://fonts.googleapis.com/css2?family=Crete+Round&display=swap" rel="stylesheet"/>
     </head>
     <body>
-        <h1 class="container-fluid">
+        <h1 class="container-fluid sticky-top">
             IAtos
         </h1>
+        <h5>
+            Realice el siguiente diagnóstico para poder determinar los pasos a seguir según tus síntomas y tu resultado del test de grabación de tos
+        </h5>
+        <br/>
+        <!--Checkboxes-->
+        <div>
+            ¿Tenés dolor de cabeza?
+            <br/>
+            <div class="form-check form-check-inline" id="prueba">
+                <br/>
+                <input class="form-check-input" id="opcionSi1" name="group1" type="radio" value="option1">
+                    <label class="form-check-label" for="inlineRadio1">
+                        Sí
+                    </label>
+                </input>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" id="opcionNo" name="group1" type="radio" value="option2">
+                    <label class="form-check-label" for="inlineRadio2">
+                        No
+                    </label>
+                </input>
+            </div>
+        </div>
+        <br/>
+        <div>
+            ¿Percibiste una marcada pérdida del gusto de manera repentina?
+            <br/>
+            <div class="form-check form-check-inline">
+                <br/>
+                <input class="form-check-input" id="opcionSi2" name="group2" type="radio" value="option1">
+                    <label class="form-check-label" for="inlineRadio1">
+                        Sí
+                    </label>
+                </input>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" id="opcionNo" name="group2" type="radio" value="option2">
+                    <label class="form-check-label" for="inlineRadio2">
+                        No
+                    </label>
+                </input>
+            </div>
+        </div>
+        <br/>
+        <div>
+            ¿Percibiste una marcada pérdida del olfato de manera repentina?
+            <br/>
+            <div class="form-check form-check-inline">
+                <br/>
+                <input class="form-check-input" id="opcionSi3" name="group3" type="radio" value="option1">
+                    <label class="form-check-label" for="inlineRadio1">
+                        Sí
+                    </label>
+                </input>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" id="opcionNo" name="group3" type="radio" value="option2">
+                    <label class="form-check-label" for="inlineRadio2">
+                        No
+                    </label>
+                </input>
+            </div>
+        </div>
+        <br/>
+        <div>
+            ¿Tenés dificultad respiratoria o falta de aire?
+            <br/>
+            <div class="form-check form-check-inline">
+                <br/>
+                <input class="form-check-input" id="opcionSi4" name="group4" type="radio" value="option1">
+                    <label class="form-check-label" for="inlineRadio1">
+                        Sí
+                    </label>
+                </input>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" id="opcionNo" name="group4" type="radio" value="option2">
+                    <label class="form-check-label" for="inlineRadio2">
+                        No
+                    </label>
+                </input>
+            </div>
+        </div>
+        <br/>
+        <div>
+            ¿Tenés tos?
+            <br/>
+            <div class="form-check form-check-inline">
+                <br/>
+                <input class="form-check-input" id="opcionSi5" name="group5" type="radio" value="option1">
+                    <label class="form-check-label" for="inlineRadio1">
+                        Sí
+                    </label>
+                </input>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" id="opcionNo" name="group5" type="radio" value="option2">
+                    <label class="form-check-label" for="inlineRadio2">
+                        No
+                    </label>
+                </input>
+            </div>
+        </div>
+        <br/>
+        <div>
+            ¿Tenés dolor de garganta?
+            <br/>
+            <div class="form-check form-check-inline">
+                <br/>
+                <input class="form-check-input" id="opcionSi6" name="group6" type="radio" value="option1">
+                    <label class="form-check-label" for="inlineRadio1">
+                        Sí
+                    </label>
+                </input>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" id="opcionNo" name="group6" type="radio" value="option2">
+                    <label class="form-check-label" for="inlineRadio2">
+                        No
+                    </label>
+                </input>
+            </div>
+        </div>
+        <br/>
+        <div>
+            ¿Tenés 37º o más de temperatura corporal?
+            <br/>
+            <div class="form-check form-check-inline">
+                <br/>
+                <input class="form-check-input" id="opcionSi7" name="group7" type="radio" value="option1">
+                    <label class="form-check-label" for="inlineRadio1">
+                        Sí
+                    </label>
+                </input>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" id="opcionNo" name="group7" type="radio" value="option2">
+                    <label class="form-check-label" for="inlineRadio2">
+                        No
+                    </label>
+                </input>
+            </div>
+        </div>
+        <br/>
+        <br/>
+        <h5>
+            A continuación haremos el test por grabación de tos. Haga click en el botón Grabar para comenzar
+        </h5>
+        <!--Botones grabación-->
         <div class="col text-center" id="controles-grabacion">
             <button class="btn btn-primary" id="comenzarGrabacion" onclick="comenzar()">
                 Grabar
@@ -32,7 +175,7 @@
             </button>
         </div>
         <div class="col text-center">
-            <form id="form" style="display: none;">
+            <form id="form" onsubmit="enviar_tos(); return false;" style="display: none;">
                 <div>
                     <audio id="grabacion">
                     </audio>
@@ -44,14 +187,33 @@
                 <a class="btn btn-outline-primary" id="descargar">
                     Descargar
                 </a>
-                <button class="btn btn-outline-success" onclick="enviar_tos()" type="button" id="enviar">
-                    Enviar
-                </button>
+                <input class="btn btn-outline-success" id="enviar" type="submit"/>
             </form>
         </div>
         <div id="resultado" style="display: none;">
             Respuesta:
             <pre></pre>
         </div>
+        <br/>
+        <br/>
+        <br/>
+        <!--Botón continuar-->
+        <div>
+            <input class="btn btn-success" id="btn" type="button" value="Resultado"/>
+        </div>
+        <br/>
+        <br/>
+        <br/>
+        <!-- Scripts -->
+        <script src="JavaScript.js">
+        </script>
+        <script src="C:\Users\user\Downloads\jquery-3.6.0.js">
+        </script>
+        <script crossorigin="anonymous" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" src="https://code.jquery.com/jquery-3.5.1.slim.min.js">
+        </script>
+        <script crossorigin="anonymous" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js">
+        </script>
+        <script crossorigin="anonymous" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js">
+        </script>
     </body>
 </html>
