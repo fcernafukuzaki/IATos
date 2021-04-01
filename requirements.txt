@@ -10,3 +10,6 @@ pydub
 tqdm
 librosa
 gunicorn # Librería para Heroku
+dnspython
+flask_mongoengine
+
