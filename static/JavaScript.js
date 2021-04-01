@@ -18,7 +18,7 @@ navigator.mediaDevices.getUserMedia({
         tos.push(e.data);
         if (mediaRecorder.state == "inactive") {
             let blob = new Blob(tos, {
-                type: 'audio/wav'
+                type: 'audio/webm'
             });
             grabacion.src = URL.createObjectURL(blob);
             grabacion.controls = true;
@@ -47,28 +47,23 @@ function borrar() {
     $('#controles-grabacion').show();
 }
 
-$(document).ready(function() {
-    $('#enviar').click(enviar_tos);
-});
-
-function enviar_tos(e) {
-    e.preventDefault();
+function enviar_tos() {
     var base64data = $('#tos_base64').val();
     var dict = {
         'tos_base64': base64data,
         'length': base64data.length
     };
     // comentar/eliminar las líneas de abajo al conectarnos a un endpoint real
-    dict = {
+    /*dict = {
         'json': JSON.stringify(dict)
-    };
+    };*/
     console.log("Envío:", dict);
     $.ajax({
-        url: '/echo',
+        url: '/enviar_tos/',
         type: 'POST',
         contentType: 'application/json; charset=utf-8',
         dataType: 'json',
-        data: dict
+        data: JSON.stringify(dict)
     }).done(function(resp) {
         console.log("Respuesta:", resp);
         mostrar_resultado(resp);
