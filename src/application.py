@@ -3,7 +3,7 @@ import statistics
 import tqdm
 import librosa
 from .util import *
-from .config import RUTA_MODELO
+from .config import RUTA_MODELO, TARGET_SAMPLE_RATE
 import os
 
 import requests
@@ -72,19 +72,21 @@ def get_result_from_model(tos):
 
     for folder_wav_path in folder_wav_paths:
         print("Extraído de %s..." % folder_wav_path)
-        extract_snippets(folder_wav_path, snippet_duration_sec=1)
+        extract_snippets(snippets_dir_x, folder_wav_path, snippet_duration_sec=1)
 
 
     WORDS_X = np.array(tf.io.gfile.listdir(str(data_testExterno)))
 
-    TARGET_SAMPLE_RATE = 16000
+    
 
-    os.mkdir('./audio_procesado/16Hz')
+    CARPETA_ARCHIVOS_SAMPLE = './audio_procesado/16Hz'
+    if not os.path.exists(CARPETA_ARCHIVOS_SAMPLE):
+        os.mkdir(CARPETA_ARCHIVOS_SAMPLE)
     
     word_dir = data_test
     resample_wavs(word_dir, target_sample_rate=TARGET_SAMPLE_RATE)
 
-    files = tf.io.gfile.glob('./audio_procesado/16Hz'+ '/*_16000hz.wav')
+    files = tf.io.gfile.glob(CARPETA_ARCHIVOS_SAMPLE + '/*_16000hz.wav')
     print(type(files))
 
     test_audio = []

@@ -6,6 +6,9 @@ from scipy.io import wavfile
 import numpy as np
 import os
 import tqdm
+import librosa
+
+from .config import TARGET_SAMPLE_RATE
 
 
 def generate_webm_file(b64_str, directory, webmfile):
@@ -32,7 +35,7 @@ def webm_to_wav(directory, webmfile, audio_name_wav):
     sound.export('{}'.format(os.path.join(directory, audio_name_wav)), format='wav')
     print('Nombre de archivo WAR: {0}{1}'.format(directory, audio_name_wav))
 
-def extract_snippets(wav_path, snippet_duration_sec=1):
+def extract_snippets(snippets_dir_x, wav_path, snippet_duration_sec=1):
     print('extract_snippets: {}'.format(wav_path))
     print('extract_snippets: {}'.format(os.path.splitext(wav_path)[0]))
     basename = os.path.basename(os.path.splitext(wav_path)[0])

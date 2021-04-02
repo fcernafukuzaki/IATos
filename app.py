@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 import datetime
 import json
 
@@ -38,20 +38,17 @@ def get_result():
         #print(dict_data['tos_base64'])
         tos = dict_data['tos_base64'].split('base64,')[1]
         #print(tos)
-        #user = User(name='NombrePrueba',dni=11111111,b64_str=tos)
-        #user.save()
+        user = User(name='NombrePrueba', dni=11111111, b64_str=tos)
+        user.save()
 
-
-        
         # Envío del bytecod64 de la tos grabada
-        #application.get_result(tos)
-        get_result_from_model(tos)
+        mensaje_respuesta = get_result_from_model(tos)
     except Exception as e:
         print('Hubo un error. {}'.format(e))
         return 'Hubo un error. Volver a grabar la tos.'
 
     print('Fin para obtener resultados a partir de la tos: {}'.format(datetime.datetime.now()))
-    return 'La persona tiene positivo para COVID-19.'
+    return jsonify(mensaje_respuesta)
 
 
 

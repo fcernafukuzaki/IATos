@@ -1,1 +1,2 @@
 RUTA_MODELO = './saved_model'
+TARGET_SAMPLE_RATE = 16000
