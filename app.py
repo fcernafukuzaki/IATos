@@ -3,7 +3,7 @@ import datetime
 import json
 
 from flask_mongoengine import MongoEngine
-
+from src.application import get_result_from_model
 
 
 app = Flask(__name__)
@@ -37,14 +37,15 @@ def get_result():
         # Recuperar sólo la cadena de la tos grabada
         #print(dict_data['tos_base64'])
         tos = dict_data['tos_base64'].split('base64,')[1]
-        print(tos)
-        user = User(name='NombrePrueba',dni=11111111,b64_str=tos)
-        user.save()
+        #print(tos)
+        #user = User(name='NombrePrueba',dni=11111111,b64_str=tos)
+        #user.save()
 
 
         
         # Envío del bytecod64 de la tos grabada
         #application.get_result(tos)
+        get_result_from_model(tos)
     except Exception as e:
         print('Hubo un error. {}'.format(e))
         return 'Hubo un error. Volver a grabar la tos.'
