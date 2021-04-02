@@ -18,6 +18,7 @@ class User(db.Document):
     name = db.StringField()
     dni = db.IntField()
     b64_str = db.StringField()
+    respuesta = db.StringField()
     def to_json(self):
         return {"name":self.name,
                 "b64_str":self.b64_str}
@@ -38,11 +39,12 @@ def get_result():
         #print(dict_data['tos_base64'])
         tos = dict_data['tos_base64'].split('base64,')[1]
         #print(tos)
-        user = User(name='NombrePrueba', dni=11111111, b64_str=tos)
-        user.save()
-
+        
         # Envío del bytecod64 de la tos grabada
         mensaje_respuesta = get_result_from_model(tos)
+
+        user = User(name='NombrePrueba', dni=11111112, b64_str=tos, respuesta=mensaje_respuesta)
+        user.save()
     except Exception as e:
         print('Hubo un error. {}'.format(e))
         return 'Hubo un error. Volver a grabar la tos.'
