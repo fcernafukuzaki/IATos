@@ -18,7 +18,7 @@
          tos.push(e.data);
          if (mediaRecorder.state == "inactive") {
              let blob = new Blob(tos, {
-                 type: 'audio/wav'
+                 type: 'audio/webm'
              });
              grabacion.src = URL.createObjectURL(blob);
              grabacion.controls = true;
@@ -54,16 +54,16 @@
          'length': base64data.length
      };
      // comentar/eliminar las líneas de abajo al conectarnos a un endpoint real
-     dict = {
+     /*dict = {
          'json': JSON.stringify(dict)
-     };
+     };*/
      console.log("Envío:", dict);
      $.ajax({
-         url: '/echo/json/',
+         url: '/enviar_tos/',
          type: 'POST',
          contentType: 'application/json; charset=utf-8',
          dataType: 'json',
-         data: dict
+         data: JSON.stringify(dict)
      }).done(function(resp) {
          console.log("Respuesta:", resp);
          mostrar_resultado(resp);

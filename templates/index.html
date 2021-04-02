@@ -6,7 +6,7 @@
         <title>
             IATos
         </title>
-        <link href="styles.css" rel="stylesheet" type="text/css"/>
+        <link href="{{url_for('static',filename='styles.css')}}" rel="stylesheet" type="text/css"/>
         <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" rel="stylesheet"/>
         <link href="images/artificial-intelligence.png" rel="shortcut icon"/>
         <link href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -175,7 +175,7 @@
             </button>
         </div>
         <div class="col text-center">
-            <form id="form" onsubmit="enviar_tos(); return false;" style="display: none;">
+            <form id="form" style="display: none;">
                 <div>
                     <audio id="grabacion">
                     </audio>
@@ -187,7 +187,9 @@
                 <a class="btn btn-outline-primary" id="descargar">
                     Descargar
                 </a>
-                <input class="btn btn-outline-success" id="enviar" type="submit"/>
+                <button class="btn btn-outline-success" onclick="enviar_tos()" type="button" id="enviar">
+                    Enviar
+                </button>
             </form>
         </div>
         <div id="resultado" style="display: none;">
@@ -205,13 +207,13 @@
         <br/>
         <br/>
         <!-- Scripts -->
-        <script src="JavaScript.js">
-        </script>
         <script crossorigin="anonymous" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" src="https://code.jquery.com/jquery-3.5.1.slim.min.js">
         </script>
         <script crossorigin="anonymous" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js">
         </script>
         <script crossorigin="anonymous" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js">
+        </script>
+        <script src="{{url_for('static',filename='JavaScript.js')}}">
         </script>
     </body>
 </html>
