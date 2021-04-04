@@ -2,7 +2,7 @@
 
 FROM tensorflow/serving
 
-RUN apt-get update && apt-get install -y git && git reset --hard
+#RUN apt-get update && apt-get install -y git && git reset --hard
 
 ENV MODEL_BASE_PATH /src/saved_model
 ENV MODEL_NAME saved_model
