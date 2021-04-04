@@ -2,7 +2,7 @@ import tensorflow as tf
 import statistics
 import librosa
 from .util import *
-from .config import RUTA_MODELO, TARGET_SAMPLE_RATE
+from .config import TARGET_SAMPLE_RATE
 import os
 import requests
 import json
@@ -23,9 +23,7 @@ def get_result_from_model(tos):
     webm_to_wav(directory, webmfile, audio_name_wav)
     
     # Cargar modelo
-
-    model = tf.keras.models.load_model(RUTA_MODELO)
-
+    
     data_test = './audio_procesado/'
     os.makedirs(data_test, exist_ok=True)
     data_testExterno = './audio_sin_procesar'
@@ -39,11 +37,6 @@ def get_result_from_model(tos):
     for folder_wav_path in folder_wav_paths:
         print("Extraído de %s..." % folder_wav_path)
         extract_snippets(snippets_dir_x, folder_wav_path, snippet_duration_sec=1)
-
-
-    WORDS_X = np.array(tf.io.gfile.listdir(str(data_testExterno)))
-
-    
 
     CARPETA_ARCHIVOS_SAMPLE = './audio_procesado/16Hz'
     if not os.path.exists(CARPETA_ARCHIVOS_SAMPLE):
@@ -68,28 +61,20 @@ def get_result_from_model(tos):
             test_audio.append(audio.numpy())
 
     test_audio = np.array(test_audio)
-
-    pred = np.argmax(model.predict(test_audio),axis=1)
-    print('El resultado es: {}'.format(pred))
-
-    pred_moda = statistics.mode(pred)
-    print('La moda es: {}'.format(pred_moda))
-
-    results = {0:'negativo',1:'noise',2:'positivo'}
-    print(f'Resultado: {results[pred_moda]}')
-
+    
     #data = test_audio
     data = json.dumps({"signature_name": "serving_default", "instances": test_audio.tolist()})
     headers = {"content-type": "application/json"}
-    json_response = requests.post('http://localhost:8501/v1/models/saved_model:predict', data=data, headers=headers)
+    json_response = requests.post('https://iatos-docker.herokuapp.com/v1/models/saved_model:predict', data=data, headers=headers)
     predictions = json.loads(json_response.text)['predictions']
     print(predictions)
+    pred = np.argmax(predictions, axis=1)
     print('El resultado es: {}'.format(pred))
 
     pred_moda = statistics.mode(pred)
     print('La moda es: {}'.format(pred_moda))
 
-    results = {0:'negativo',1:'noise',2:'positivo'}
+    results = {0:'negativo', 1:'noise', 2:'positivo'}
     print(f'Resultado: {results[pred_moda]}')
 
 
@@ -97,4 +82,4 @@ def get_result_from_model(tos):
 
 
 if __name__ == '__main__':
-    get_result('')
+    get_result_from_model('')
