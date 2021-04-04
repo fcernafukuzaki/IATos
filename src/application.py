@@ -4,6 +4,8 @@ import librosa
 from .util import *
 from .config import RUTA_MODELO, TARGET_SAMPLE_RATE
 import os
+import requests
+import json
 
 
 def get_result_from_model(tos):
@@ -75,6 +77,22 @@ def get_result_from_model(tos):
 
     results = {0:'negativo',1:'noise',2:'positivo'}
     print(f'Resultado: {results[pred_moda]}')
+
+    #data = test_audio
+    data = json.dumps({"signature_name": "serving_default", "instances": test_audio.tolist()})
+    headers = {"content-type": "application/json"}
+    json_response = requests.post('http://localhost:8501/v1/models/saved_model:predict', data=data, headers=headers)
+    predictions = json.loads(json_response.text)['predictions']
+    print(predictions)
+    print('El resultado es: {}'.format(pred))
+
+    pred_moda = statistics.mode(pred)
+    print('La moda es: {}'.format(pred_moda))
+
+    results = {0:'negativo',1:'noise',2:'positivo'}
+    print(f'Resultado: {results[pred_moda]}')
+
+
     return f'Resultado: {results[pred_moda]}'
 
 
