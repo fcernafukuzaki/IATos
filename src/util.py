@@ -19,14 +19,6 @@ def generate_webm_file(b64_str, directory, webmfile):
         file.write(decodedData)
 
 def webm_to_wav(directory, webmfile, audio_name_wav):
-    # Workaround para Windows 10 - Inicio
-    path = os.path.dirname(os.path.realpath(__file__))
-    os.environ["PATH"] += os.pathsep + os.path.join(path, "bin")
-    AudioSegment.converter = os.path.join(path, "bin", "ffmpeg.exe")
-    AudioSegment.ffmpeg = os.path.join(path, "bin", "ffmpeg.exe")
-    AudioSegment.ffprobe = os.path.join(path, "bin", "ffprobe.exe")
-    # Workaround para Windows 10 - Fin
-    
     ruta_archivo = os.path.join(directory,webmfile)
     print('Nombre de archivo WEBM: {}'.format(ruta_archivo))
     sound = AudioSegment.from_file('{}'.format(ruta_archivo) , 'webm')
