@@ -17,7 +17,14 @@ https://medium.com/tensorflow/serving-ml-quickly-with-tensorflow-serving-and-doc
 # Install requirements.txt
 
 pip install -r requirements.txt
-Declarar variable con la ubicación del archivo
-set FLASK_APP=app.py
-flask run
 python app.py
+
+# Create image for tensorflow model
+
+Create a Dockerfile with:
+
+FROM tensorflow/serving
+
+ENV MODEL_NAME saved_model
+
+COPY ./src/saved_model /models/saved_model/1
