@@ -6,3 +6,7 @@ src/*/__*
 
 *.py_
 *.pyc
+
+.git__/
+*.wav
+*.webm

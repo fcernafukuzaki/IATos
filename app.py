@@ -47,7 +47,7 @@ def get_result():
         user.save()
     except Exception as e:
         print('Hubo un error. {}'.format(e))
-        return 'Hubo un error. Volver a grabar la tos.'
+        return jsonify('Hubo un error. Volver a grabar la tos.')
 
     print('Fin para obtener resultados a partir de la tos: {}'.format(datetime.datetime.now()))
     return jsonify(mensaje_respuesta)
@@ -56,4 +56,4 @@ def get_result():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)

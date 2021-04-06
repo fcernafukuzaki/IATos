@@ -65,7 +65,7 @@ def get_result_from_model(tos):
     #data = test_audio
     data = json.dumps({"signature_name": "serving_default", "instances": test_audio.tolist()})
     headers = {"content-type": "application/json"}
-    json_response = requests.post('https://iatos-docker.herokuapp.com/v1/models/saved_model:predict', data=data, headers=headers)
+    json_response = requests.post('http://iatosapp:8501/v1/models/saved_model:predict', data=data, headers=headers)
     predictions = json.loads(json_response.text)['predictions']
     print(predictions)
     pred = np.argmax(predictions, axis=1)

@@ -1,2 +1,1 @@
-RUTA_MODELO = './src/saved_model'
 TARGET_SAMPLE_RATE = 16000
