@@ -1,20 +1,22 @@
-# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
-# More GitHub Actions for Azure: https://github.com/Azure/actions
+# Docs for the Azure Web Apps Deploy action: https://go.microsoft.com/fwlink/?linkid=2134798
+# More GitHub Actions for Azure: https://go.microsoft.com/fwlink/?linkid=2135048
 
-name: Build and deploy Python app to Azure Web App - iatosdemo
+name: Azure App Service - iatosdemo(Production), Build and deploy Python app
 
 on:
   push:
     branches:
       - workaround-windows-prueba-heroku
-  workflow_dispatch:
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    # checkout the repo
+    - name: 'Checkout Github Action'
+      uses: actions/checkout@master
+
 
     - name: Set up Python version
       uses: actions/setup-python@v1
@@ -27,9 +29,10 @@ jobs:
         platform: python
         platform-version: '3.8'
 
-    - name: 'Deploy to Azure Web App'
+    - name: Run Azure webapp deploy action using publish profile credentials
       uses: azure/webapps-deploy@v2
       with:
-        app-name: 'iatosdemo'
-        slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_78de9907755d43138f781c1b52405fee }}
+        app-name: iatosdemo
+        slot-name: Production
+        publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_31E5C4B532A240258B67F692FB89A25B }}
+
