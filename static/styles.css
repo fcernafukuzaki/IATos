@@ -23,6 +23,23 @@ h5 {
     margin-right: 8px;
     margin-left: 8px;
 }
+input {
+    text-align: center;
+    text-decoration: cursive;
+    margin: auto;
+}
+/* Esconder flechas de number input */
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+    
+    -webkit-appearance: none;
+    margin: 0;
+}
+form {
+    font-weight: bold;
+    text-align: center;
+    margin-right: 8px;
+    margin-left: 8px;
+}
 div {
     font-weight: bold;
     text-align: center;
