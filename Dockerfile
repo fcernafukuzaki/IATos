@@ -1,12 +1,16 @@
-FROM python:3.8
+FROM alpine:3.10
 
-WORKDIR /iatos-app
+RUN apk add --no-cache python3-dev \
+    && pip3 install --upgrade pip
+
+WORKDIR /iatos-web-app
 
 COPY requirements.txt .
 
-RUN pip --no-cache-dir install -r requirements.txt
+#RUN pip --no-cache-dir install -r requirements.txt
+RUN pip3 --no-cache-dir install -r requirements.txt
 
-RUN apt-get update -y && apt-get install -y --no-install-recommends build-essential gcc libsndfile1 ffmpeg
+#RUN apt-get update -y && apt-get install -y --no-install-recommends build-essential gcc libsndfile1 
 
 COPY ./src ./src
 
@@ -18,4 +22,4 @@ COPY app.py .
 
 EXPOSE 5000
 
-CMD ["python", "app.py"]
+CMD ["python3", "app.py"]

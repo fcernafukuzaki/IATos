@@ -3,3 +3,5 @@ Flask-Cors
 gunicorn # Librería para Heroku
 dnspython
 flask_mongoengine
+pytz
+requests
