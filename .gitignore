@@ -10,3 +10,5 @@ src/*/__*
 .git__/
 *.wav
 *.webm
+
+saved_model/bin/

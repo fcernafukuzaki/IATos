@@ -1,7 +1,13 @@
+tensorflow
+ffmpeg==1.4
 Flask
 Flask-Cors
-gunicorn # Librería para Heroku
+flask-marshmallow
+flask-mongoengine
+Flask-RESTful
+gunicorn
+librosa
+statistics
 dnspython
-flask_mongoengine
-pytz
-requests
+pydub
+tqdm

@@ -6,3 +6,5 @@ src/*/__*
 *.data-00000-of-00001 filter=lfs diff=lfs merge=lfs -text
 *.pb filter=lfs diff=lfs merge=lfs -text
 *.index filter=lfs diff=lfs merge=lfs -text
+*.psd filter=lfs diff=lfs merge=lfs -text
+*.data-000 filter=lfs diff=lfs merge=lfs -text
