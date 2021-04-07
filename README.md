@@ -10,20 +10,47 @@ Repositorio GitHub:
 - (1) https://github.com/fcernafukuzaki/IATos/tree/iatos-model-app
 - (2) https://github.com/fcernafukuzaki/IATos/tree/iatos-web-app
 
+<a name="precondiciones"></a>
 #### **Precondiciones:**
 
 - Tener instalado Git o GitHub Desktop.
 - Tener instalado LSF GitHub (https://git-lfs.github.com/)
 - Tener instalado Docker Hub (https://docs.docker.com/docker-for-windows/install/).
 
+#### **Indice - Tabla de contenidos**
+
+1. [Precondiciones](#precondiciones)
+2. [Pasos Rama iatos-model-app](#pasos-rama-iatos-model-app)
+
+    2.1. [Paso 1. Clonar repositorio](#paso-1-clonar-repositorio)
+  
+    2.2. [Paso 2. Reemplazar red neuronal y subir a GitHub (opcional)](#paso-2-reemplazar-red-neuronal-y-subir-a-github-opcional)
+  
+    2.3. [Paso 3. Crear contenedor Docker y subir a DockerHub](#paso-3-crear-contenedor-docker-y-subir-a-dockerhub)
+  
+    2.4. [Paso 4. Desplegar contenedor en Azure (Instancias de contenedor)](#paso-4-desplegar-contenedor-en-azure-instancias-de-contenedor)
+  
+3. [Pasos Rama iatos-web-app](#pasos-rama-iatos-web-app)
+  
+    3.1. [Paso 1. Clonar repositorio](#paso-1-clonar-repositorio-1)
+  
+    3.2. [Paso 2. Actualizar código fuente y subir a GitHub (opcional)](#paso-2-actualizar-c%C3%B3digo-fuente-y-subir-a-github-opcional)
+  
+    3.3. [Paso 3. Crear contenedor Docker y subir a DockerHub (opcional)](#paso-3-crear-contenedor-docker-y-subir-a-dockerhub-opcional)
+  
+    3.4. [Paso 4. Desplegar contenedor en Azure (App Services)](#paso-4-desplegar-contenedor-en-azure-app-services)
+
+<a name="pasos-rama-iatos-model-app"></a>
 #### **Pasos Rama iatos-model-app**
 
+<a name="paso-1-clonar-repositorio"></a>
 ##### **Paso 1.** Clonar repositorio:
 
 - Clonar repositorio: `git clone https://github.com/fcernafukuzaki/IATos.git`. Y moverse a la rama: `git checkout iatos-model-app`
 - O de lo contrario clonar sólo la rama: `git clone -b iatos-model-app https://github.com/fcernafukuzaki/IATos.git`
 - O descargarlo desde GitHub Desktop.
 
+<a name="paso-2-reemplazar-red-neuronal-y-subir-a-github-opcional"></a>
 ##### **Paso 2.** Reemplazar red neuronal y subir a GitHub (opcional):
 
 - En caso se desee reemplazar la red neuronal con un nuevo archivo se deberá asegurar que el nombre del archivo sea `saved_model.pb` y colocarlo dentro de la carpeta `saved_model`. De igual forma, actualizar los archivos dentro de la carpeta `variables`.
@@ -32,6 +59,7 @@ Repositorio GitHub:
 - Debido a que estos archivos son pesados, se deberá ejecutar las siguientes líneas `git lfs track "*.pb"` , `git lfs track "*.data-00000-of-00001"` , `git lfs track "*.index"` y `git add .gitattributes`. De esta forma se podrán subir a GitHub.
 - Finalmente, subir a GitHub: `git add .` , `git commit -m "Add new files"` y `git push`.
 
+<a name="paso-3-crear-contenedor-docker-y-subir-a-dockerhub"></a>
 ##### **Paso 3.** Crear contenedor Docker y subir a DockerHub:
 
 - Desde consola CMD ubicarse en la carpeta donde se ha clonado el respositorio.
@@ -43,6 +71,7 @@ Repositorio GitHub:
 - Subir contenedor a DockerHub: `docker push fcernafukuzaki/iatos-model-app`. Para este ejemplo se usa el nombre de usuario "fcernafukuzaki".
 - ❗ El proceso de subida puede tardar varios minutos dependiendo de la conexión a internet.
 
+<a name="paso-4-desplegar-contenedor-en-azure-instancias-de-contenedor"></a>
 ##### **Paso 4.** Desplegar contenedor en Azure (Instancias de contenedor):
 
 - En Azure ubicar el servicio Instancias de contenedor.
@@ -56,19 +85,22 @@ Repositorio GitHub:
 - ❗ Para obtener el IP público del contenedor se debe dar click sobre el nombre del contenedor y dar click en "Información general". El IP se mostrará cuando la creación haya finalizado.
 ![Imagen3](https://raw.githubusercontent.com/fcernafukuzaki/IATos/main/imagenes_tutorial/Imagen3.png)
 
+<a name="pasos-rama-iatos-web-app"></a>
 #### **Pasos Rama iatos-web-app**
-
+<a name="paso-1-clonar-repositorio-1"></a>
 ##### **Paso 1.** Clonar repositorio:
 
 - Clonar repositorio: `git clone https://github.com/fcernafukuzaki/IATos.git`. Y moverse a la rama: `git checkout iatos-web-app`
 - O de lo contrario clonar sólo la rama: `git clone -b iatos-web-app https://github.com/fcernafukuzaki/IATos.git`
 - O descargarlo desde GitHub Desktop.
 
+<a name="paso-2-actualizar-c%C3%B3digo-fuente-y-subir-a-github-opcional"></a>
 ##### **Paso 2.** Actualizar código fuente y subir a GitHub (opcional):
 
 - En caso se actualice el código fuente, se debe ingresar a consola CMD y ubicarse en la carpeta donde se ha clonado el respositorio.
 - Finalmente, subir a GitHub: `git add .` , `git commit -m "Add new files"` y `git push`.
 
+<a name="paso-3-crear-contenedor-docker-y-subir-a-dockerhub-opcional"></a>
 ##### **Paso 3.** Crear contenedor Docker y subir a DockerHub (opcional):
 
 - Desde consola CMD ubicarse en la carpeta donde se ha clonado el respositorio.
@@ -80,6 +112,7 @@ Repositorio GitHub:
 - Subir contenedor a DockerHub: `docker push fcernafukuzaki/iatos-web-app`. Para este ejemplo se usa el nombre de usuario "fcernafukuzaki".
 - ❗ El proceso de subida puede tardar varios minutos dependiendo de la conexión a internet.
 
+<a name="paso-4-desplegar-contenedor-en-azure-app-services"></a>
 ##### **Paso 4.** Desplegar contenedor en Azure (App Services):
 
 - En Azure ubicar el servicio App Services.
