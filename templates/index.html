@@ -24,7 +24,22 @@
             IAtos
         </h1>
         <h5>
-            Realice el siguiente diagnóstico para poder determinar los pasos a seguir según tus síntomas y tu resultado del test de grabación de tos
+            Paso 1: Complete los siguientes datos personales:
+        </h5>
+        <br/>
+        <form>
+            <input maxlength="8" name="dni" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" placeholder="DNI / Pasaporte" required="" size="8" type="number"/>
+            <br/>
+            <br/>
+            <input name="tel" placeholder="Teléfono / Celular" required="" type="number"/>
+            <br/>
+            <br/>
+            <input name="email" placeholder="Email" required="" type="email"/>
+        </form>
+        <br/>
+        <br/>
+        <h5>
+           Paso 2: Realice el siguiente diagnóstico para poder determinar los pasos a seguir según tus síntomas y tu resultado del test de grabación de tos
         </h5>
         <br/>
         <!--Checkboxes-->
@@ -170,7 +185,7 @@
         <br/>
         <br/>
         <h5>
-            A continuación haremos el test por grabación de tos. Haga click en el botón Grabar para comenzar
+           Paso 3: A continuación haremos el test por grabación de tos. Haga click en el botón Grabar para comenzar
         </h5>
         <!--Botones grabación-->
         <div class="col text-center" id="controles-grabacion">
