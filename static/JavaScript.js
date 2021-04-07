@@ -51,7 +51,14 @@
      var base64data = $('#tos_base64').val();
      var dict = {
          'tos_base64': base64data,
-         'length': base64data.length
+         'length': base64data.length,
+         'opcionSi1': document.getElementById('opcionSi1').checked,
+         'opcionSi2': document.getElementById('opcionSi2').checked,
+         'opcionSi3': document.getElementById('opcionSi3').checked,
+         'opcionSi4': document.getElementById('opcionSi4').checked,
+         'opcionSi5': document.getElementById('opcionSi5').checked,
+         'opcionSi6': document.getElementById('opcionSi6').checked,
+         'opcionSi7': document.getElementById('opcionSi7').checked
      };
      // comentar/eliminar las líneas de abajo al conectarnos a un endpoint real
      /*dict = {

@@ -1,19 +1,17 @@
 version: '3'
 
 services:
-    iatostensorflow:
-        container_name: iatostensorflowapp
+    web:
+        container_name: iatoswebapp
         restart: always
         build: .
         ports:
-            - "5000:5000"
+            - "80:5000"
         links:
             - iatosapp
-        volumes:
-            - .:/iatos-app
     iatosapp:
         container_name: iatosapp
         image: fcernafukuzaki/iatos-docker-tensorflow:latest
         ports: 
-            - "8501:8501"
-        
+            - "5000:5000"
+       
