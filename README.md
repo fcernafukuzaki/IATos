@@ -21,15 +21,24 @@ Repositorio GitHub:
 
 1. [Precondiciones](#precondiciones)
 2. [Pasos Rama iatos-model-app](#pasos-rama-iatos-model-app)
-	2. 1. [Paso 1. Clonar repositorio](#paso-1-clonar-repositorio)
-	2. 2. [Paso 2. Reemplazar red neuronal y subir a GitHub (opcional)](#paso-2-reemplazar-red-neuronal-y-subir-a-github-opcional)
-	2. 3. [Paso 3. Crear contenedor Docker y subir a DockerHub](#paso-3-crear-contenedor-docker-y-subir-a-dockerhub)
-	2. 4. [Paso 4. Desplegar contenedor en Azure (Instancias de contenedor)](#paso-4-desplegar-contenedor-en-azure-instancias-de-contenedor)
+
+  2.1. [Paso 1. Clonar repositorio](#paso-1-clonar-repositorio)
+  
+  2.2. [Paso 2. Reemplazar red neuronal y subir a GitHub (opcional)](#paso-2-reemplazar-red-neuronal-y-subir-a-github-opcional)
+  
+  2.3. [Paso 3. Crear contenedor Docker y subir a DockerHub](#paso-3-crear-contenedor-docker-y-subir-a-dockerhub)
+  
+  2.4. [Paso 4. Desplegar contenedor en Azure (Instancias de contenedor)](#paso-4-desplegar-contenedor-en-azure-instancias-de-contenedor)
+  
 3. [Pasos Rama iatos-web-app](#pasos-rama-iatos-web-app)
-	3. 1. [Paso 1. Clonar repositorio](#paso-1-clonar-repositorio-1)
-	3. 2. [Paso 2. Actualizar código fuente y subir a GitHub (opcional)](#paso-2-actualizar-c%C3%B3digo-fuente-y-subir-a-github-opcional)
-	3. 3. [Paso 3. Crear contenedor Docker y subir a DockerHub (opcional)](#paso-3-crear-contenedor-docker-y-subir-a-dockerhub-opcional)
-	3. 4. [Paso 4. Desplegar contenedor en Azure (App Services)](#paso-4-desplegar-contenedor-en-azure-app-services)
+  
+  3. 1. [Paso 1. Clonar repositorio](#paso-1-clonar-repositorio-1)
+  
+  3. 2. [Paso 2. Actualizar código fuente y subir a GitHub (opcional)](#paso-2-actualizar-c%C3%B3digo-fuente-y-subir-a-github-opcional)
+  
+  3. 3. [Paso 3. Crear contenedor Docker y subir a DockerHub (opcional)](#paso-3-crear-contenedor-docker-y-subir-a-dockerhub-opcional)
+  
+  3. 4. [Paso 4. Desplegar contenedor en Azure (App Services)](#paso-4-desplegar-contenedor-en-azure-app-services)
 
 <a name="pasos-rama-iatos-model-app"></a>
 #### **Pasos Rama iatos-model-app**
